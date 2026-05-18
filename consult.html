@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Бесплатная консультация по облицовке кирпичом. Узнайте стоимость вашего фасада за 15 минут. Павлодар, KZ и KG.">
+  <title>Бесплатная консультация — YERMEEK Строй Мастер</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:   #FAFAF8;
+      --bg2:  #F3F0EA;
+      --bg3:  #EAE5DC;
+      --bg4:  #DDD8CE;
+      --gold: #B8902A;
+      --gl:   #A07820;
+      --gll:  #C9A840;
+      --text: #1A1410;
+      --muted:#6A5A48;
+      --dim:  #9A8A78;
+      --bdr:  rgba(184,144,42,.25);
+      --bds:  rgba(0,0,0,.08);
+      --sh:   0 4px 24px rgba(0,0,0,.1);
+      --r:    12px;
+      --rl:   20px;
+      --tr:   all .3s cubic-bezier(.4,0,.2,1);
+      --wa:   #25D366;
+      --wa2:  #1ebe5d;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;padding-bottom:80px}
+    h1,h2{font-family:'Playfair Display',serif;line-height:1.15;letter-spacing:-.02em}
+    h1{font-size:clamp(1.9rem,5vw,3.2rem);font-weight:800}
+    h2{font-size:clamp(1.4rem,3vw,2.1rem);font-weight:700}
+    p{color:var(--muted);line-height:1.7}
+    a{text-decoration:none;color:inherit}
+
+    .container{max-width:960px;margin:0 auto;padding:0 24px}
+    .section{padding:72px 0}
+
+    /* FADE */
+    .fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+    .fade-up.visible{opacity:1;transform:translateY(0)}
+
+    /* BUTTONS */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 28px;border-radius:10px;font-size:1rem;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;transition:var(--tr);border:none;white-space:nowrap;text-decoration:none}
+    .btn-wa{background:var(--wa);color:#fff;font-size:1.05rem;padding:16px 32px;border-radius:12px}
+    .btn-wa:hover{background:var(--wa2);transform:translateY(-2px);box-shadow:0 8px 32px rgba(37,211,102,.35)}
+    .btn-wa svg{width:22px;height:22px;flex-shrink:0}
+    .btn-gold{background:var(--gold);color:#120C04;padding:15px 30px;border-radius:12px}
+    .btn-gold:hover{background:var(--gl);transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,168,76,.35)}
+    .btn-outline{background:transparent;border:1.5px solid rgba(201,168,76,.4);color:var(--text)}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gl)}
+    .btn-full{width:100%}
+
+    /* TOP BAR */
+    .topbar{padding:16px 0;border-bottom:1px solid var(--bds);position:sticky;top:0;z-index:100;background:rgba(250,250,248,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+    .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .logo-wrap{display:flex;align-items:center;gap:10px}
+    .logo-name{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:800;letter-spacing:.05em;line-height:1}
+    .logo-name em{color:var(--gold);font-style:normal}
+    .logo-sub{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-top:3px}
+    .topbar-ig{display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;color:var(--muted);transition:color .2s}
+    .topbar-ig:hover{color:var(--text)}
+    .topbar-ig svg{width:18px;height:18px}
+
+    /* HERO */
+    .hero{padding:64px 0 56px}
+    .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);border-radius:100px;padding:8px 16px;font-size:.78rem;font-weight:600;color:var(--wa);margin-bottom:22px}
+    .hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--wa);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
+    .hero h1{margin-bottom:18px}
+    .hero h1 em{color:var(--gl);font-style:italic}
+    .hero-sub{font-size:1rem;margin-bottom:32px;max-width:440px}
+    .hero-btns{display:flex;flex-direction:column;gap:12px;max-width:360px}
+    .hero-note{font-size:.76rem;color:var(--dim);margin-top:8px;text-align:center}
+    .hero-img-wrap{position:relative;border-radius:var(--rl);overflow:hidden}
+    .hero-img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center;border-radius:var(--rl);display:block}
+    .hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,21,16,.7) 0%,transparent 50%)}
+    .hero-img-badge{position:absolute;bottom:20px;left:20px;background:rgba(250,250,248,.95);backdrop-filter:blur(12px);border:1px solid var(--bdr);border-radius:10px;padding:12px 16px}
+    .hib-label{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:3px}
+    .hib-value{font-size:1rem;font-weight:800;color:var(--gold);font-family:'Playfair Display',serif}
+
+    /* PAIN */
+    .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+    .pain-card{background:var(--bg2);border:1px solid var(--bds);border-radius:var(--rl);padding:28px 22px;transition:var(--tr)}
+    .pain-card:hover{border-color:var(--bdr);transform:translateY(-3px)}
+    .pain-icon{width:46px;height:46px;border-radius:10px;background:rgba(201,168,76,.08);border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;color:var(--gl);margin-bottom:16px}
+    .pain-icon svg{width:22px;height:22px}
+    .pain-card h3{font-size:.98rem;font-weight:700;color:var(--text);font-family:'Inter',sans-serif;margin-bottom:8px}
+    .pain-card p{font-size:.84rem;line-height:1.6}
+
+    /* STEPS */
+    .steps-bg{background:var(--bg2);border-top:1px solid var(--bds);border-bottom:1px solid var(--bds)}
+    .steps-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:48px}
+    .step{position:relative;text-align:center;padding:0 24px}
+    .step:not(:last-child)::after{content:'→';position:absolute;right:-12px;top:22px;font-size:1.2rem;color:var(--dim)}
+    .step-num{width:48px;height:48px;border-radius:50%;background:var(--gold);color:#120C04;font-size:1.1rem;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-family:'Playfair Display',serif}
+    .step h3{font-size:.95rem;font-weight:700;color:var(--text);font-family:'Inter',sans-serif;margin-bottom:8px}
+    .step p{font-size:.84rem}
+
+    /* FORM SECTION */
+    .form-bg{position:relative;overflow:hidden}
+    .form-bg::before{content:'';position:absolute;top:-40%;right:-20%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.06) 0%,transparent 70%);pointer-events:none}
+    .form-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+    .form-content h2{margin-bottom:14px}
+    .form-content>p{font-size:.975rem;margin-bottom:28px}
+    .form-perks{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+    .form-perk{display:flex;align-items:center;gap:10px;font-size:.875rem;color:var(--muted)}
+    .form-perk-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+    .form-box{background:#fff;border:1px solid var(--bds);border-radius:var(--rl);padding:36px;box-shadow:0 2px 24px rgba(0,0,0,.07)}
+    .form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+    .form-label{font-size:.7rem;font-weight:600;color:var(--muted);letter-spacing:.07em;text-transform:uppercase}
+    .form-input{background:var(--bg2);border:1.5px solid var(--bds);border-radius:8px;padding:12px 14px;font-size:.9rem;color:var(--text);font-family:'Inter',sans-serif;transition:border-color .2s;outline:none;width:100%}
+    .form-input::placeholder{color:var(--dim)}
+    .form-input:focus{border-color:var(--gold)}
+    .form-textarea{resize:vertical;min-height:80px}
+    .form-check{display:flex;align-items:flex-start;gap:10px;font-size:.76rem;color:var(--dim);margin-bottom:16px}
+    .form-check input{margin-top:2px;accent-color:var(--gold);width:15px;height:15px;flex-shrink:0;cursor:pointer}
+    .form-check a{color:var(--gl);text-decoration:underline}
+    .or-divider{display:flex;align-items:center;gap:12px;margin:16px 0;font-size:.75rem;color:var(--dim)}
+    .or-divider::before,.or-divider::after{content:'';flex:1;height:1px;background:var(--bds)}
+
+    /* TRUST BAR */
+    .trust-mini{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:48px}
+    .trust-mini-item{display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--muted)}
+    .trust-mini-item svg{width:18px;height:18px;color:var(--gold);flex-shrink:0}
+    .trust-mini-num{font-weight:800;color:var(--text);font-family:'Playfair Display',serif;font-size:1.05rem}
+
+    /* STICKY WA BUTTON */
+    .sticky-wa{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:200;width:calc(100% - 32px);max-width:400px;display:none;box-shadow:0 8px 40px rgba(0,0,0,.6)}
+    @media(max-width:768px){.sticky-wa{display:flex}}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .hero-inner{grid-template-columns:1fr;gap:32px}
+      .hero-img-wrap{max-height:280px;overflow:hidden}
+      .hero-img{aspect-ratio:16/9;object-position:top center}
+      .hero-btns{max-width:100%}
+      .pain-grid{grid-template-columns:1fr 1fr}
+      .steps-inner{grid-template-columns:1fr;gap:28px}
+      .step{padding:0}
+      .step:not(:last-child)::after{content:'↓';right:auto;left:50%;transform:translateX(-50%);top:auto;bottom:-20px;font-size:1rem}
+      .form-inner{grid-template-columns:1fr;gap:32px}
+      .trust-mini{gap:20px}
+    }
+    @media(max-width:600px){
+      body{padding-bottom:90px}
+      .container{padding:0 20px}
+      .hero{padding:40px 0 32px}
+      .section{padding:48px 0}
+      .hero h1{font-size:clamp(1.65rem,7vw,2.2rem)}
+      .hero-sub{font-size:.92rem}
+      .hero-img-wrap{max-height:240px}
+      .pain-grid{grid-template-columns:1fr}
+      .pain-card{padding:22px 18px}
+      .step-num{width:40px;height:40px;font-size:1rem}
+      .form-box{padding:22px 16px}
+      .trust-mini{flex-direction:column;align-items:center;gap:14px}
+      .topbar-ig span{display:none}
+      .hero-btns .btn{padding:14px 20px;font-size:.95rem}
+      .btn-wa.sticky-wa{font-size:.95rem;padding:15px 24px;border-radius:14px;bottom:16px}
+    }
+    @media(max-width:380px){
+      .container{padding:0 16px}
+      .hero h1{font-size:1.6rem}
+      .form-box{padding:18px 14px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- SVG SYMBOLS -->
+<svg style="display:none">
+  <symbol id="ic-wa" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </symbol>
+  <symbol id="ic-insta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/>
+  </symbol>
+  <symbol id="ic-question" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+  </symbol>
+  <symbol id="ic-money" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M6 12h.01M18 12h.01"/>
+  </symbol>
+  <symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <path d="M12 2l7 4v6c0 5-3.5 9.5-7 11C8.5 21.5 5 17 5 12V6z"/><path d="M9 12l2 2 4-4"/>
+  </symbol>
+  <symbol id="ic-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <path d="M12 15c-4 0-7-3-7-7V4h14v4c0 4-3 7-7 7z"/>
+    <path d="M8.5 15.5S7 17 7 19h10c0-2-1.5-3.5-1.5-3.5M9 21h6"/>
+    <path d="M5 6H3a1 1 0 01-1-1V4h3M19 6h2a1 1 0 001-1V4h-3"/>
+  </symbol>
+  <symbol id="ic-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/>
+  </symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <path d="M12 2l7 4v6c0 5-3.5 9.5-7 11C8.5 21.5 5 17 5 12V6z"/><path d="M9 12l2 2 4-4"/>
+  </symbol>
+  <symbol id="ic-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+  </symbol>
+  <symbol id="ic-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <rect x="2" y="8" width="20" height="13" rx="1"/><line x1="2" y1="13" x2="22" y2="13"/><line x1="12" y1="8" x2="12" y2="21"/>
+    <path d="M12 8c0-2 1-4 4-4s4 2 0 4M12 8c0-2-1-4-4-4s-4 2 0 4"/>
+  </symbol>
+</svg>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <div class="container">
+    <div class="topbar-inner">
+      <a href="index.html" class="logo-wrap">
+        <svg width="28" height="22" viewBox="0 0 34 26">
+          <rect x="0" y="0" width="15" height="10" rx="2" fill="#C9A84C"/>
+          <rect x="19" y="0" width="15" height="10" rx="2" fill="#C9A84C" opacity=".7"/>
+          <rect x="7" y="16" width="20" height="10" rx="2" fill="#DFC06A"/>
+        </svg>
+        <div>
+          <div class="logo-name">YER<em>MEEK</em></div>
+          <div class="logo-sub">Строй Мастер</div>
+        </div>
+      </a>
+      <a href="https://instagram.com/ergstroika" target="_blank" rel="noopener" class="topbar-ig">
+        <svg width="18" height="18"><use href="#ic-insta"/></svg>
+        <span>@ergstroika</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="fade-up">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Бесплатная консультация
+        </div>
+        <h1>Узнайте, сколько стоит ваш фасад — <em>за 15 минут</em></h1>
+        <p class="hero-sub">Расскажите об объекте — мы свяжемся в течение часа и дадим точный расчёт. Без обязательств.</p>
+        <div class="hero-btns">
+          <a href="https://wa.me/77716109187?text=Здравствуйте!+Хочу+получить+бесплатную+консультацию+по+облицовке" target="_blank" class="btn btn-wa">
+            <svg width="22" height="22"><use href="#ic-wa"/></svg>
+            Написать в WhatsApp
+          </a>
+          <a href="#form" class="btn btn-outline">Оставить заявку</a>
+        </div>
+        <p class="hero-note">Отвечаем в течение 1 часа · Без спама</p>
+      </div>
+      <div class="fade-up" style="transition-delay:.1s">
+        <div class="hero-img-wrap">
+          <img class="hero-img" src="yermek.jpg" alt="Мастер Ермек" onerror="this.style.display='none'">
+          <div class="hero-img-overlay"></div>
+          <div class="hero-img-badge">
+            <div class="hib-label">Мастер · опыт</div>
+            <div class="hib-value">20 лет</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="fade-up" style="text-align:center">
+      <p style="font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gl);margin-bottom:12px">Узнаём себя?</p>
+      <h2>Частые вопросы перед началом</h2>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card fade-up">
+        <div class="pain-icon"><svg><use href="#ic-question"/></svg></div>
+        <h3>Не знаете, с чего начать?</h3>
+        <p>Не понимаете, какой кирпич выбрать, сколько материала нужно и как вообще всё это работает.</p>
+      </div>
+      <div class="pain-card fade-up" style="transition-delay:.08s">
+        <div class="pain-icon"><svg><use href="#ic-money"/></svg></div>
+        <h3>Боитесь переплатить?</h3>
+        <p>Сложно понять реальную стоимость. Одни говорят одно, другие — совсем другое. Хочется ясности.</p>
+      </div>
+      <div class="pain-card fade-up" style="transition-delay:.16s">
+        <div class="pain-icon"><svg><use href="#ic-shield"/></svg></div>
+        <h3>Не уверены в качестве?</h3>
+        <p>Уже видели объекты, где через год трещины и кривые швы. Не хочется попасть в ту же ситуацию.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<div class="steps-bg">
+  <section class="section">
+    <div class="container">
+      <div class="fade-up" style="text-align:center">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gl);margin-bottom:12px">Просто и быстро</p>
+        <h2>Как получить расчёт</h2>
+      </div>
+      <div class="steps-inner">
+        <div class="step fade-up">
+          <div class="step-num">1</div>
+          <h3>Оставляете заявку</h3>
+          <p>Напишите в WhatsApp или заполните форму — расскажите об объекте</p>
+        </div>
+        <div class="step fade-up" style="transition-delay:.08s">
+          <div class="step-num">2</div>
+          <h3>Связываемся за 1 час</h3>
+          <p>Уточняем детали, задаём несколько вопросов про ваш проект</p>
+        </div>
+        <div class="step fade-up" style="transition-delay:.16s">
+          <div class="step-num">3</div>
+          <h3>Получаете расчёт</h3>
+          <p>Точная стоимость материалов и работ — бесплатно, без обязательств</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FORM -->
+<section class="section form-bg" id="form">
+  <div class="container">
+    <div class="form-inner">
+      <div class="fade-up">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gl);margin-bottom:12px">Бесплатно</p>
+        <h2>Получите расчёт своего проекта</h2>
+        <p style="margin:14px 0 24px;font-size:.975rem">Опишите объект — мы рассчитаем стоимость материалов и работ. Никакого спама, только конкретный ответ.</p>
+        <div class="form-perks">
+          <div class="form-perk"><div class="form-perk-dot"></div>Ответим в течение 1 часа</div>
+          <div class="form-perk"><div class="form-perk-dot"></div>Расчёт материалов — бесплатно</div>
+          <div class="form-perk"><div class="form-perk-dot"></div>Работаем в Казахстане и Кыргызстане</div>
+          <div class="form-perk"><div class="form-perk-dot"></div>20 лет опыта — без переделок</div>
+        </div>
+        <a href="https://wa.me/77716109187?text=Здравствуйте!+Хочу+получить+бесплатную+консультацию" target="_blank" class="btn btn-wa" style="margin-top:8px">
+          <svg width="20" height="20"><use href="#ic-wa"/></svg>
+          Написать в WhatsApp сейчас
+        </a>
+      </div>
+      <div class="fade-up" style="transition-delay:.1s">
+        <div class="form-box">
+          <form id="consultForm" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label class="form-label">Ваше имя</label>
+              <input class="form-input" type="text" id="fname" placeholder="Как к вам обращаться?" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Телефон</label>
+              <input class="form-input" type="tel" id="fphone" placeholder="+7 (___) ___-__-__" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Опишите объект</label>
+              <textarea class="form-input form-textarea" id="fdesc" placeholder="Тип объекта, площадь, город..."></textarea>
+            </div>
+            <label class="form-check">
+              <input type="checkbox" required>
+              <span>Я согласен с <a href="offer.html" target="_blank">условиями оферты</a> и <a href="privacy.html" target="_blank">политикой конфиденциальности</a></span>
+            </label>
+            <button type="submit" class="btn btn-gold btn-full">Получить бесплатный расчёт</button>
+            <div class="or-divider">или</div>
+            <a href="https://wa.me/77716109187?text=Здравствуйте!+Хочу+получить+бесплатную+консультацию" target="_blank" class="btn btn-wa btn-full">
+              <svg width="18" height="18"><use href="#ic-wa"/></svg>
+              Написать в WhatsApp
+            </a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="trust-mini fade-up">
+      <div class="trust-mini-item">
+        <svg width="18" height="18"><use href="#ic-trophy"/></svg>
+        <span><span class="trust-mini-num">20+</span> лет опыта</span>
+      </div>
+      <div class="trust-mini-item">
+        <svg width="18" height="18"><use href="#ic-pin"/></svg>
+        <span>Казахстан + Кыргызстан</span>
+      </div>
+      <div class="trust-mini-item">
+        <svg width="18" height="18"><use href="#ic-shield"/></svg>
+        <span>Без переделок</span>
+      </div>
+      <div class="trust-mini-item">
+        <svg width="18" height="18"><use href="#ic-gift"/></svg>
+        <span>Расчёт бесплатно</span>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="https://instagram.com/ergstroika" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:.85rem;transition:color .2s" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--muted)'">
+        <svg width="16" height="16"><use href="#ic-insta"/></svg>
+        Наши работы в Instagram: @ergstroika
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STICKY WA (mobile) -->
+<a href="https://wa.me/77716109187?text=Здравствуйте!+Хочу+получить+бесплатную+консультацию" target="_blank" class="btn btn-wa sticky-wa" id="stickyWa">
+  <svg width="20" height="20"><use href="#ic-wa"/></svg>
+  Написать в WhatsApp
+</a>
+
+<script>
+  new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 }).observe && document.querySelectorAll('.fade-up').forEach(el =>
+    new IntersectionObserver(es => { if (es[0].isIntersecting) el.classList.add('visible'); }, { threshold: 0.1 }).observe(el)
+  );
+
+  // Hide sticky button when form is visible
+  const form = document.getElementById('form');
+  const stickyBtn = document.getElementById('stickyWa');
+  new IntersectionObserver(es => {
+    stickyBtn.style.display = es[0].isIntersecting ? 'none' : null;
+  }, { threshold: 0.3 }).observe(form);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const name = encodeURIComponent(document.getElementById('fname').value);
+    const phone = encodeURIComponent(document.getElementById('fphone').value);
+    const desc = encodeURIComponent(document.getElementById('fdesc').value || '');
+    const msg = `Здравствуйте!+Меня+зовут+${name}.+Мой+телефон:+${phone}.${desc ? '+Объект:+' + desc : ''}+Хочу+получить+бесплатный+расчёт.`;
+    window.open(`https://wa.me/77716109187?text=${msg}`, '_blank');
+  }
+</script>
+</body>
+</html>
